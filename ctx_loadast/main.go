@@ -21,11 +21,11 @@ func main() {
 
 func main() {
 	fset := token.NewFileSet()
-	ctx := gossa.NewContext(0)
 	f, err := parser.ParseFile(fset, "main.go", source, parser.ParseComments)
 	if err != nil {
 		log.Panicln("parse", err)
 	}
+	ctx := gossa.NewContext(0)
 	pkg, err := ctx.LoadAstFile(fset, f)
 	if err != nil {
 		log.Panicln("load", err)
