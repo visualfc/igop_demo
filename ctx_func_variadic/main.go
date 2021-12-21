@@ -1,9 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"go/token"
 	"log"
-	"reflect"
 
 	"github.com/goplus/gossa"
 	_ "github.com/goplus/gossa/pkg/fmt"
@@ -32,10 +32,10 @@ func main() {
 		log.Panicln("interp", err)
 	}
 	v1, err := interp.RunFunc("sum", []int{100, 200})
-	log.Println(v1, err)
+	fmt.Println(v1, err)
 	v2, err := interp.RunFunc("sum", []int{})
-	log.Println(v2, err)
+	fmt.Println(v2, err)
 	// error call
 	v3, err := interp.RunFunc("sum")
-	log.Println("error call", v3, err)
+	fmt.Println(v3, err)
 }

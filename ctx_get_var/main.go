@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"go/token"
 	"log"
 
@@ -12,9 +13,10 @@ var source = `
 package bar
 
 var index int = 100
+var pindex *int = &index
 
-func add(i, j int) int {
-	return i+j
+func show() {
+	println(index)
 }
 `
 
@@ -31,7 +33,17 @@ func main() {
 	}
 	if v, ok := interp.GetVarAddr("index"); ok {
 		if p, ok := v.(*int); ok {
-			log.Println(*p)
+			fmt.Println(*p)
+			*p = 200
 		}
+	}
+	if v, ok := interp.GetVarAddr("pindex"); ok {
+		if p, ok := v.(**int); ok {
+			fmt.Println(**p)
+			**p = 300
+		}
+	}
+	if fn, ok := interp.GetFunc("show"); ok {
+		fn.(func())()
 	}
 }

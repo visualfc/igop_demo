@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"go/token"
 	"log"
 	"reflect"
@@ -40,9 +41,8 @@ func main() {
 	}
 	if typ, ok := interp.GetType("Point"); ok {
 		v := reflect.New(typ)
-		if fn := v.MethodByName("Set"); fn.IsValid() {
-			fn.Call([]reflect.Value{reflect.ValueOf(100), reflect.ValueOf(200)})
-		}
-		log.Println(v)
+		fn := v.MethodByName("Set")
+		fn.Interface().(func(int, int))(100, 200)
+		fmt.Println(v)
 	}
 }

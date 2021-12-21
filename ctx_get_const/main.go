@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"go/token"
 	"log"
 
@@ -33,6 +34,7 @@ func main() {
 		log.Panicln("interp", err)
 	}
 	if v, ok := interp.GetConst("Pi"); ok {
-		log.Println(v)
+		fmt.Println(v)
+		fmt.Println(v.ExactString())
 	}
 }

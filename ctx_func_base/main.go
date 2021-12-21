@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"go/token"
 	"log"
 
@@ -34,5 +35,5 @@ func main() {
 		log.Panicln("interp", err)
 	}
 	v, err := interp.RunFunc("add", 100, 200)
-	log.Println(v, err)
+	fmt.Println(v, err)
 }

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"go/token"
 	"log"
 
@@ -12,7 +13,7 @@ var source = `
 package bar
 
 func call(i, j int) (int,int) {
-	return i+j, j*j
+	return i+j, i*j
 }
 `
 
@@ -28,7 +29,8 @@ func main() {
 		log.Panicln("interp", err)
 	}
 	v, err := interp.RunFunc("call", 100, 200)
-	log.Println(v, err)
-	t := v.(gossa.Tuple)
-	log.Println(len(t), t[0], t[1])
+	fmt.Println(v, err)
+	if t, ok := v.(gossa.Tuple); ok {
+		fmt.Println(len(t), t[0], t[1])
+	}
 }

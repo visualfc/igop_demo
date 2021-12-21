@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"go/token"
 	"log"
 
@@ -30,7 +31,7 @@ func main() {
 	if v, ok := interp.GetFunc("add"); ok {
 		if fn, ok := v.(func(int, int) int); ok {
 			r := fn(100, 200)
-			log.Println(r)
+			fmt.Println(r)
 		}
 	}
 }
