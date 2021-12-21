@@ -9,8 +9,8 @@ import (
 )
 
 var source = `
-println "Hello, World"
-panic "error"
+var i int
+println 100/i
 `
 
 func main() {
