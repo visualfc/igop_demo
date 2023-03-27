@@ -1,11 +1,10 @@
 package main
 
 import (
-	"go/token"
 	"log"
 
-	"github.com/goplus/gossa"
-	_ "github.com/goplus/gossa/pkg/fmt"
+	"github.com/goplus/igop"
+	_ "github.com/goplus/igop/pkg/fmt"
 )
 
 var source = `
@@ -19,9 +18,8 @@ func main() {
 `
 
 func main() {
-	fset := token.NewFileSet()
-	ctx := gossa.NewContext(0)
-	pkg, err := ctx.LoadFile(fset, "main.go", source)
+	ctx := igop.NewContext(0)
+	pkg, err := ctx.LoadFile("main.go", source)
 	if err != nil {
 		log.Panicln("load", err)
 	}
@@ -29,7 +27,7 @@ func main() {
 	if err != nil {
 		log.Panicln("interp", err)
 	}
-	_, err = interp.Run("main")
+	_, err = interp.RunMain()
 	if err != nil {
 		log.Panicln("run", err)
 	}

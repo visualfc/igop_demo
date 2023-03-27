@@ -1,5 +1,5 @@
-module github.com/visualfc/gossa_demo
+module github.com/visualfc/igop_demo
 
 go 1.16
 
-require github.com/goplus/gossa v0.2.11
+require github.com/goplus/igop v0.9.11

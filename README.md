@@ -1,14 +1,7 @@
-# gossa_demo
-https://github.com/goplus/gossa demo
+# igop_demo
+https://github.com/goplus/igop demo
 
-### Go1.16
+### Go1.16~Go1.20
 * WASM
 * GopherJS
 * Native
-
-### Go1.17
-* WASM
-* GopherJS
-* Native
-
-	set env `GOEXPERIMENT=noregabi` on amd64

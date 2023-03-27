@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 
-	"github.com/goplus/gossa"
-	_ "github.com/goplus/gossa/pkg/fmt"
-	_ "github.com/goplus/gossa/pkg/os"
+	"github.com/goplus/igop"
+	_ "github.com/goplus/igop/pkg/fmt"
+	_ "github.com/goplus/igop/pkg/os"
 )
 
 var source = `
@@ -23,7 +23,7 @@ func main() {
 `
 
 func main() {
-	code, err := gossa.RunFile("main.go", source, nil, 0)
+	code, err := igop.RunFile("main.go", source, nil, 0)
 	if err != nil {
 		panic(err)
 	}

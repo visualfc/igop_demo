@@ -2,11 +2,10 @@ package main
 
 import (
 	"fmt"
-	"go/token"
 	"log"
 
-	"github.com/goplus/gossa"
-	_ "github.com/goplus/gossa/pkg/fmt"
+	"github.com/goplus/igop"
+	_ "github.com/goplus/igop/pkg/fmt"
 )
 
 var source = `
@@ -21,9 +20,8 @@ func sum(n ...int) (r int) {
 `
 
 func main() {
-	fset := token.NewFileSet()
-	ctx := gossa.NewContext(0)
-	pkg, err := ctx.LoadFile(fset, "main.go", source)
+	ctx := igop.NewContext(0)
+	pkg, err := ctx.LoadFile("main.go", source)
 	if err != nil {
 		log.Panicln("load", err)
 	}
@@ -35,7 +33,4 @@ func main() {
 	fmt.Println(v1, err)
 	v2, err := interp.RunFunc("sum", []int{})
 	fmt.Println(v2, err)
-	// error call
-	v3, err := interp.RunFunc("sum")
-	fmt.Println(v3, err)
 }

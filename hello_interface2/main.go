@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/goplus/gossa"
-	_ "github.com/goplus/gossa/pkg/fmt"
+	"github.com/goplus/igop"
+	_ "github.com/goplus/igop/pkg/fmt"
 )
 
 var source = `
@@ -33,7 +33,7 @@ func main() {
 `
 
 func main() {
-	_, err := gossa.RunFile("main.go", source, nil, 0)
+	_, err := igop.RunFile("main.go", source, nil, 0)
 	if err != nil {
 		panic(err)
 	}
